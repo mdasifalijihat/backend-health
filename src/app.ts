@@ -1,4 +1,5 @@
 import express, { Application, Request, Response } from 'express';
+import { IndexRoutes } from './app/router';
 
 const app: Application = express();
 
@@ -7,6 +8,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+app.use("/specialty", IndexRoutes);
 
 // Basic route
 app.get("/", (req: Request, res: Response) => {
