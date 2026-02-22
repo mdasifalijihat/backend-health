@@ -2,15 +2,15 @@
   "compilerOptions": {
     "module": "ESNext", 
     "moduleResolution": "bundler",   
-    "target": "ES2023",                           
+    "target":"ES2023",                              
     "rootDir": "./src",
     "outDir": "./dist", 
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "ignoreDeprecations": "6.0"
+    "types": ["node"]
   },
-  "include": ["src"],
+  "include": ["src", "prisma"],
   "exclude": ["node_modules", "dist"]
 }
