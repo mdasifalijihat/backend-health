@@ -1,6 +1,6 @@
 import app from "./app";
 
-const port = 3000;
+const port = 5000;
 
 // Start the server
 const bootstrap = () => {

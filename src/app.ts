@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-app.use("/specialty", IndexRoutes);
+app.use("/api/v1", IndexRoutes);
 
 // Basic route
 app.get("/", (req: Request, res: Response) => {
