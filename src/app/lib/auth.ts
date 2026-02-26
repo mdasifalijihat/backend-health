@@ -5,7 +5,6 @@ import { Role, UserStatus } from "../../generated/prisma/enums";
 import { envVars } from "../../config/env";
 
 // If your Prisma file is located elsewhere, you can change the path
-
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
     provider: "postgresql",
@@ -48,5 +47,14 @@ export const auth = betterAuth({
 
   advanced: {
     disableCSRFCheck: true,
+  },
+
+  session: {
+    expiresIn: 60 * 60 * 60 * 24, // 24 hours in seconds
+    updateAge: 60 * 60 * 60, // 24 hours in seconds
+    cookieCache: {
+      enabled: true,
+      maxAge: 60 * 60 * 60 * 24 * 1, // 1 day in seconds
+    },
   },
 });
