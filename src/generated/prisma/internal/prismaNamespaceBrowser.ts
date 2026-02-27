@@ -225,7 +225,10 @@ export type DoctorSpecialtyScalarFieldEnum = (typeof DoctorSpecialtyScalarFieldE
 export const SuperAdminScalarFieldEnum = {
   id: 'id',
   name: 'name',
+  contactNumber: 'contactNumber',
   profilePhoto: 'profilePhoto',
+  isDeleted: 'isDeleted',
+  deletedAt: 'deletedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   userId: 'userId'

@@ -27,7 +27,10 @@ export type AggregateSuperAdmin = {
 export type SuperAdminMinAggregateOutputType = {
   id: string | null
   name: string | null
+  contactNumber: string | null
   profilePhoto: string | null
+  isDeleted: boolean | null
+  deletedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
   userId: string | null
@@ -36,7 +39,10 @@ export type SuperAdminMinAggregateOutputType = {
 export type SuperAdminMaxAggregateOutputType = {
   id: string | null
   name: string | null
+  contactNumber: string | null
   profilePhoto: string | null
+  isDeleted: boolean | null
+  deletedAt: Date | null
   createdAt: Date | null
   updatedAt: Date | null
   userId: string | null
@@ -45,7 +51,10 @@ export type SuperAdminMaxAggregateOutputType = {
 export type SuperAdminCountAggregateOutputType = {
   id: number
   name: number
+  contactNumber: number
   profilePhoto: number
+  isDeleted: number
+  deletedAt: number
   createdAt: number
   updatedAt: number
   userId: number
@@ -56,7 +65,10 @@ export type SuperAdminCountAggregateOutputType = {
 export type SuperAdminMinAggregateInputType = {
   id?: true
   name?: true
+  contactNumber?: true
   profilePhoto?: true
+  isDeleted?: true
+  deletedAt?: true
   createdAt?: true
   updatedAt?: true
   userId?: true
@@ -65,7 +77,10 @@ export type SuperAdminMinAggregateInputType = {
 export type SuperAdminMaxAggregateInputType = {
   id?: true
   name?: true
+  contactNumber?: true
   profilePhoto?: true
+  isDeleted?: true
+  deletedAt?: true
   createdAt?: true
   updatedAt?: true
   userId?: true
@@ -74,7 +89,10 @@ export type SuperAdminMaxAggregateInputType = {
 export type SuperAdminCountAggregateInputType = {
   id?: true
   name?: true
+  contactNumber?: true
   profilePhoto?: true
+  isDeleted?: true
+  deletedAt?: true
   createdAt?: true
   updatedAt?: true
   userId?: true
@@ -156,7 +174,10 @@ export type SuperAdminGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
 export type SuperAdminGroupByOutputType = {
   id: string
   name: string
+  contactNumber: string | null
   profilePhoto: string | null
+  isDeleted: boolean
+  deletedAt: Date | null
   createdAt: Date
   updatedAt: Date
   userId: string
@@ -186,7 +207,10 @@ export type SuperAdminWhereInput = {
   NOT?: Prisma.SuperAdminWhereInput | Prisma.SuperAdminWhereInput[]
   id?: Prisma.StringFilter<"SuperAdmin"> | string
   name?: Prisma.StringFilter<"SuperAdmin"> | string
+  contactNumber?: Prisma.StringNullableFilter<"SuperAdmin"> | string | null
   profilePhoto?: Prisma.StringNullableFilter<"SuperAdmin"> | string | null
+  isDeleted?: Prisma.BoolFilter<"SuperAdmin"> | boolean
+  deletedAt?: Prisma.DateTimeNullableFilter<"SuperAdmin"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"SuperAdmin"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SuperAdmin"> | Date | string
   userId?: Prisma.StringFilter<"SuperAdmin"> | string
@@ -196,7 +220,10 @@ export type SuperAdminWhereInput = {
 export type SuperAdminOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  contactNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   profilePhoto?: Prisma.SortOrderInput | Prisma.SortOrder
+  isDeleted?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   userId?: Prisma.SortOrder
@@ -210,7 +237,10 @@ export type SuperAdminWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.SuperAdminWhereInput[]
   NOT?: Prisma.SuperAdminWhereInput | Prisma.SuperAdminWhereInput[]
   name?: Prisma.StringFilter<"SuperAdmin"> | string
+  contactNumber?: Prisma.StringNullableFilter<"SuperAdmin"> | string | null
   profilePhoto?: Prisma.StringNullableFilter<"SuperAdmin"> | string | null
+  isDeleted?: Prisma.BoolFilter<"SuperAdmin"> | boolean
+  deletedAt?: Prisma.DateTimeNullableFilter<"SuperAdmin"> | Date | string | null
   createdAt?: Prisma.DateTimeFilter<"SuperAdmin"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"SuperAdmin"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -219,7 +249,10 @@ export type SuperAdminWhereUniqueInput = Prisma.AtLeast<{
 export type SuperAdminOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  contactNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   profilePhoto?: Prisma.SortOrderInput | Prisma.SortOrder
+  isDeleted?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   userId?: Prisma.SortOrder
@@ -234,7 +267,10 @@ export type SuperAdminScalarWhereWithAggregatesInput = {
   NOT?: Prisma.SuperAdminScalarWhereWithAggregatesInput | Prisma.SuperAdminScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"SuperAdmin"> | string
   name?: Prisma.StringWithAggregatesFilter<"SuperAdmin"> | string
+  contactNumber?: Prisma.StringNullableWithAggregatesFilter<"SuperAdmin"> | string | null
   profilePhoto?: Prisma.StringNullableWithAggregatesFilter<"SuperAdmin"> | string | null
+  isDeleted?: Prisma.BoolWithAggregatesFilter<"SuperAdmin"> | boolean
+  deletedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"SuperAdmin"> | Date | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"SuperAdmin"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"SuperAdmin"> | Date | string
   userId?: Prisma.StringWithAggregatesFilter<"SuperAdmin"> | string
@@ -243,7 +279,10 @@ export type SuperAdminScalarWhereWithAggregatesInput = {
 export type SuperAdminCreateInput = {
   id?: string
   name: string
+  contactNumber?: string | null
   profilePhoto?: string | null
+  isDeleted?: boolean
+  deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutSuperAdminInput
@@ -252,7 +291,10 @@ export type SuperAdminCreateInput = {
 export type SuperAdminUncheckedCreateInput = {
   id?: string
   name: string
+  contactNumber?: string | null
   profilePhoto?: string | null
+  isDeleted?: boolean
+  deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   userId: string
@@ -261,7 +303,10 @@ export type SuperAdminUncheckedCreateInput = {
 export type SuperAdminUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  contactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutSuperAdminNestedInput
@@ -270,7 +315,10 @@ export type SuperAdminUpdateInput = {
 export type SuperAdminUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  contactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
@@ -279,7 +327,10 @@ export type SuperAdminUncheckedUpdateInput = {
 export type SuperAdminCreateManyInput = {
   id?: string
   name: string
+  contactNumber?: string | null
   profilePhoto?: string | null
+  isDeleted?: boolean
+  deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   userId: string
@@ -288,7 +339,10 @@ export type SuperAdminCreateManyInput = {
 export type SuperAdminUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  contactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -296,7 +350,10 @@ export type SuperAdminUpdateManyMutationInput = {
 export type SuperAdminUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  contactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
@@ -310,7 +367,10 @@ export type SuperAdminNullableScalarRelationFilter = {
 export type SuperAdminCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  contactNumber?: Prisma.SortOrder
   profilePhoto?: Prisma.SortOrder
+  isDeleted?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   userId?: Prisma.SortOrder
@@ -319,7 +379,10 @@ export type SuperAdminCountOrderByAggregateInput = {
 export type SuperAdminMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  contactNumber?: Prisma.SortOrder
   profilePhoto?: Prisma.SortOrder
+  isDeleted?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   userId?: Prisma.SortOrder
@@ -328,7 +391,10 @@ export type SuperAdminMaxOrderByAggregateInput = {
 export type SuperAdminMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  contactNumber?: Prisma.SortOrder
   profilePhoto?: Prisma.SortOrder
+  isDeleted?: Prisma.SortOrder
+  deletedAt?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   userId?: Prisma.SortOrder
@@ -369,7 +435,10 @@ export type SuperAdminUncheckedUpdateOneWithoutUserNestedInput = {
 export type SuperAdminCreateWithoutUserInput = {
   id?: string
   name: string
+  contactNumber?: string | null
   profilePhoto?: string | null
+  isDeleted?: boolean
+  deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -377,7 +446,10 @@ export type SuperAdminCreateWithoutUserInput = {
 export type SuperAdminUncheckedCreateWithoutUserInput = {
   id?: string
   name: string
+  contactNumber?: string | null
   profilePhoto?: string | null
+  isDeleted?: boolean
+  deletedAt?: Date | string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -401,7 +473,10 @@ export type SuperAdminUpdateToOneWithWhereWithoutUserInput = {
 export type SuperAdminUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  contactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -409,7 +484,10 @@ export type SuperAdminUpdateWithoutUserInput = {
 export type SuperAdminUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  contactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -419,7 +497,10 @@ export type SuperAdminUncheckedUpdateWithoutUserInput = {
 export type SuperAdminSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  contactNumber?: boolean
   profilePhoto?: boolean
+  isDeleted?: boolean
+  deletedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   userId?: boolean
@@ -429,7 +510,10 @@ export type SuperAdminSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
 export type SuperAdminSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  contactNumber?: boolean
   profilePhoto?: boolean
+  isDeleted?: boolean
+  deletedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   userId?: boolean
@@ -439,7 +523,10 @@ export type SuperAdminSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
 export type SuperAdminSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  contactNumber?: boolean
   profilePhoto?: boolean
+  isDeleted?: boolean
+  deletedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   userId?: boolean
@@ -449,13 +536,16 @@ export type SuperAdminSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
 export type SuperAdminSelectScalar = {
   id?: boolean
   name?: boolean
+  contactNumber?: boolean
   profilePhoto?: boolean
+  isDeleted?: boolean
+  deletedAt?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   userId?: boolean
 }
 
-export type SuperAdminOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "profilePhoto" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["superAdmin"]>
+export type SuperAdminOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "contactNumber" | "profilePhoto" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["superAdmin"]>
 export type SuperAdminInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -474,7 +564,10 @@ export type $SuperAdminPayload<ExtArgs extends runtime.Types.Extensions.Internal
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
+    contactNumber: string | null
     profilePhoto: string | null
+    isDeleted: boolean
+    deletedAt: Date | null
     createdAt: Date
     updatedAt: Date
     userId: string
@@ -904,7 +997,10 @@ export interface Prisma__SuperAdminClient<T, Null = never, ExtArgs extends runti
 export interface SuperAdminFieldRefs {
   readonly id: Prisma.FieldRef<"SuperAdmin", 'String'>
   readonly name: Prisma.FieldRef<"SuperAdmin", 'String'>
+  readonly contactNumber: Prisma.FieldRef<"SuperAdmin", 'String'>
   readonly profilePhoto: Prisma.FieldRef<"SuperAdmin", 'String'>
+  readonly isDeleted: Prisma.FieldRef<"SuperAdmin", 'Boolean'>
+  readonly deletedAt: Prisma.FieldRef<"SuperAdmin", 'DateTime'>
   readonly createdAt: Prisma.FieldRef<"SuperAdmin", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"SuperAdmin", 'DateTime'>
   readonly userId: Prisma.FieldRef<"SuperAdmin", 'String'>

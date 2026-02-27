@@ -138,7 +138,9 @@ const createAdmin = async (payload: ICreateAdmin) => {
       const adminData = await tx.admin.create({
         data: {
           userId: userData.user.id,
-          ...payload.admin,
+          name: payload.admin.name,
+          contactNumber: payload.admin.contactNumber,
+          profilePhoto: payload.admin.profilePhoto,
         },
       });
       return adminData;
@@ -178,7 +180,9 @@ const createSuperAdmin = async (payload: ICreateSuperAdmin) => {
       const superAdminData = await tx.superAdmin.create({
         data: {
           userId: userData.user.id,
-          ...payload.superAdmin,
+          name: payload.superAdmin.name,
+          profilePhoto: payload.superAdmin.profilePhoto,
+          contactNumber: payload.superAdmin.contactNumber,
         },
       });
       return superAdminData;
