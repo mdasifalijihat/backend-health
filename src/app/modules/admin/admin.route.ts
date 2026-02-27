@@ -1,6 +1,6 @@
 import { Router } from "express";
-// import { checkAuth } from "../../middleware/checkAuth";
-// import { Role } from "../../../generated/prisma/enums";
+import { checkAuth } from "../../middleware/checkAuth";
+import { Role } from "../../../generated/prisma/enums";
 import { validateRequest } from "../../middleware/validateRequest";
 import { adminValidation } from "./admin.validation";
 import { AdminController } from "./admin.controller";
@@ -20,6 +20,13 @@ router.post(
   "/login",
   validateRequest(adminValidation.loginAdminZodSchema),
   AdminController.adminLogin,
+);
+
+// get all admins
+router.get(
+  "/",
+  // checkAuth(Role.SUPER_ADMIN), 
+  AdminController.getAllAdmins,
 );
 
 router.patch(

@@ -48,7 +48,7 @@ const createAdmin = async (payload: ICreateAdmin) => {
   }
 };
 
-// login admin 
+// login admin
 const adminLogin = async (email: string, password: string) => {
   const data = await auth.api.signInEmail({
     body: { email, password },
@@ -75,6 +75,23 @@ const adminLogin = async (email: string, password: string) => {
   return { accessToken, refreshToken };
 };
 
+// get all admins
+const getAllAdmins = async () => {
+  const result = await prisma.admin.findMany({
+    include: {
+      user: {
+        select: {
+          id: true,
+          email: true,
+          role: true,
+          needPasswordChange: true,
+        },
+      },
+    },
+  });
+
+  return result;
+};
 
 // update admin
 const updateAdmin = async (adminId: string, payload: IUpdateAdmin) => {
@@ -118,6 +135,7 @@ const deleteAdmin = async (adminId: string) => {
 export const AdminService = {
   createAdmin,
   adminLogin,
+  getAllAdmins,
   updateAdmin,
   deleteAdmin,
 };

@@ -95,6 +95,9 @@ const superAdminLogin = async (email: string, password: string) => {
   };
 };
 
+// get all admin 
+
+
 export const superAdminService = {
   createSuperAdmin,
   superAdminLogin,

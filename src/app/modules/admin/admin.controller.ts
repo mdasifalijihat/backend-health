@@ -30,6 +30,18 @@ const adminLogin = catchAsync(async (req: Request, res: Response) => {
   });
 });
 
+// get all admins
+const getAllAdmins = catchAsync(async (req: Request, res: Response) => {
+  const result = await AdminService.getAllAdmins();
+
+  sendResponse(res, {
+    httpStatusCode: status.OK,
+    success: true,
+    message: "Admins retrieved successfully",
+    data: result,
+  });
+});
+
 // update admin
 const updateAdmin = catchAsync(async (req: Request, res: Response) => {
   const { id } = req.params;
@@ -61,6 +73,7 @@ const deleteAdmin = catchAsync(async (req: Request, res: Response) => {
 export const AdminController = {
   createAdmin,
   adminLogin,
+  getAllAdmins,
   updateAdmin,
   deleteAdmin,
 };

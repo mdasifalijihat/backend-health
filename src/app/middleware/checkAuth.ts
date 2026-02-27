@@ -11,6 +11,7 @@ export const checkAuth =
   (...authRoles: Role[]) =>
   async (req: Request, res: Response, next: NextFunction) => {
     try {
+      
       // session token verification
       const sessionToken = cookieUtils.getCookie(req, "betterAuthSession");
 
@@ -84,7 +85,7 @@ export const checkAuth =
         accessToken,
         envVars.ACCESS_TOKEN_SECRET,
       );
-
+     
       if (!verifiedToken.success) {
         throw new AppError(
           status.UNAUTHORIZED,
@@ -109,3 +110,5 @@ export const checkAuth =
       next(err);
     }
   };
+
+
