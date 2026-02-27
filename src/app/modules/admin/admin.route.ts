@@ -25,7 +25,7 @@ router.post(
 // get all admins
 router.get(
   "/",
-  // checkAuth(Role.SUPER_ADMIN), 
+  checkAuth(Role.SUPER_ADMIN), 
   AdminController.getAllAdmins,
 );
 

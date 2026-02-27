@@ -27,6 +27,7 @@ export type AggregateAdmin = {
 export type AdminMinAggregateOutputType = {
   id: string | null
   name: string | null
+  email: string | null
   contactNumber: string | null
   profilePhoto: string | null
   isDeleted: boolean | null
@@ -39,6 +40,7 @@ export type AdminMinAggregateOutputType = {
 export type AdminMaxAggregateOutputType = {
   id: string | null
   name: string | null
+  email: string | null
   contactNumber: string | null
   profilePhoto: string | null
   isDeleted: boolean | null
@@ -51,6 +53,7 @@ export type AdminMaxAggregateOutputType = {
 export type AdminCountAggregateOutputType = {
   id: number
   name: number
+  email: number
   contactNumber: number
   profilePhoto: number
   isDeleted: number
@@ -65,6 +68,7 @@ export type AdminCountAggregateOutputType = {
 export type AdminMinAggregateInputType = {
   id?: true
   name?: true
+  email?: true
   contactNumber?: true
   profilePhoto?: true
   isDeleted?: true
@@ -77,6 +81,7 @@ export type AdminMinAggregateInputType = {
 export type AdminMaxAggregateInputType = {
   id?: true
   name?: true
+  email?: true
   contactNumber?: true
   profilePhoto?: true
   isDeleted?: true
@@ -89,6 +94,7 @@ export type AdminMaxAggregateInputType = {
 export type AdminCountAggregateInputType = {
   id?: true
   name?: true
+  email?: true
   contactNumber?: true
   profilePhoto?: true
   isDeleted?: true
@@ -174,6 +180,7 @@ export type AdminGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 export type AdminGroupByOutputType = {
   id: string
   name: string
+  email: string
   contactNumber: string | null
   profilePhoto: string | null
   isDeleted: boolean
@@ -207,6 +214,7 @@ export type AdminWhereInput = {
   NOT?: Prisma.AdminWhereInput | Prisma.AdminWhereInput[]
   id?: Prisma.StringFilter<"Admin"> | string
   name?: Prisma.StringFilter<"Admin"> | string
+  email?: Prisma.StringFilter<"Admin"> | string
   contactNumber?: Prisma.StringNullableFilter<"Admin"> | string | null
   profilePhoto?: Prisma.StringNullableFilter<"Admin"> | string | null
   isDeleted?: Prisma.BoolFilter<"Admin"> | boolean
@@ -220,6 +228,7 @@ export type AdminWhereInput = {
 export type AdminOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  email?: Prisma.SortOrder
   contactNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   profilePhoto?: Prisma.SortOrderInput | Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
@@ -232,6 +241,7 @@ export type AdminOrderByWithRelationInput = {
 
 export type AdminWhereUniqueInput = Prisma.AtLeast<{
   id?: string
+  email?: string
   userId?: string
   AND?: Prisma.AdminWhereInput | Prisma.AdminWhereInput[]
   OR?: Prisma.AdminWhereInput[]
@@ -244,11 +254,12 @@ export type AdminWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"Admin"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Admin"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-}, "id" | "userId">
+}, "id" | "email" | "userId">
 
 export type AdminOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  email?: Prisma.SortOrder
   contactNumber?: Prisma.SortOrderInput | Prisma.SortOrder
   profilePhoto?: Prisma.SortOrderInput | Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
@@ -267,6 +278,7 @@ export type AdminScalarWhereWithAggregatesInput = {
   NOT?: Prisma.AdminScalarWhereWithAggregatesInput | Prisma.AdminScalarWhereWithAggregatesInput[]
   id?: Prisma.StringWithAggregatesFilter<"Admin"> | string
   name?: Prisma.StringWithAggregatesFilter<"Admin"> | string
+  email?: Prisma.StringWithAggregatesFilter<"Admin"> | string
   contactNumber?: Prisma.StringNullableWithAggregatesFilter<"Admin"> | string | null
   profilePhoto?: Prisma.StringNullableWithAggregatesFilter<"Admin"> | string | null
   isDeleted?: Prisma.BoolWithAggregatesFilter<"Admin"> | boolean
@@ -279,6 +291,7 @@ export type AdminScalarWhereWithAggregatesInput = {
 export type AdminCreateInput = {
   id?: string
   name: string
+  email: string
   contactNumber?: string | null
   profilePhoto?: string | null
   isDeleted?: boolean
@@ -291,6 +304,7 @@ export type AdminCreateInput = {
 export type AdminUncheckedCreateInput = {
   id?: string
   name: string
+  email: string
   contactNumber?: string | null
   profilePhoto?: string | null
   isDeleted?: boolean
@@ -303,6 +317,7 @@ export type AdminUncheckedCreateInput = {
 export type AdminUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   contactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -315,6 +330,7 @@ export type AdminUpdateInput = {
 export type AdminUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   contactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -327,6 +343,7 @@ export type AdminUncheckedUpdateInput = {
 export type AdminCreateManyInput = {
   id?: string
   name: string
+  email: string
   contactNumber?: string | null
   profilePhoto?: string | null
   isDeleted?: boolean
@@ -339,6 +356,7 @@ export type AdminCreateManyInput = {
 export type AdminUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   contactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -350,6 +368,7 @@ export type AdminUpdateManyMutationInput = {
 export type AdminUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   contactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -362,6 +381,7 @@ export type AdminUncheckedUpdateManyInput = {
 export type AdminCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  email?: Prisma.SortOrder
   contactNumber?: Prisma.SortOrder
   profilePhoto?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
@@ -374,6 +394,7 @@ export type AdminCountOrderByAggregateInput = {
 export type AdminMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  email?: Prisma.SortOrder
   contactNumber?: Prisma.SortOrder
   profilePhoto?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
@@ -386,6 +407,7 @@ export type AdminMaxOrderByAggregateInput = {
 export type AdminMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
+  email?: Prisma.SortOrder
   contactNumber?: Prisma.SortOrder
   profilePhoto?: Prisma.SortOrder
   isDeleted?: Prisma.SortOrder
@@ -455,6 +477,7 @@ export type AdminUncheckedUpdateOneWithoutUserNestedInput = {
 export type AdminCreateWithoutUserInput = {
   id?: string
   name: string
+  email: string
   contactNumber?: string | null
   profilePhoto?: string | null
   isDeleted?: boolean
@@ -466,6 +489,7 @@ export type AdminCreateWithoutUserInput = {
 export type AdminUncheckedCreateWithoutUserInput = {
   id?: string
   name: string
+  email: string
   contactNumber?: string | null
   profilePhoto?: string | null
   isDeleted?: boolean
@@ -493,6 +517,7 @@ export type AdminUpdateToOneWithWhereWithoutUserInput = {
 export type AdminUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   contactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -504,6 +529,7 @@ export type AdminUpdateWithoutUserInput = {
 export type AdminUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
   contactNumber?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   profilePhoto?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   isDeleted?: Prisma.BoolFieldUpdateOperationsInput | boolean
@@ -517,6 +543,7 @@ export type AdminUncheckedUpdateWithoutUserInput = {
 export type AdminSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  email?: boolean
   contactNumber?: boolean
   profilePhoto?: boolean
   isDeleted?: boolean
@@ -530,6 +557,7 @@ export type AdminSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
 export type AdminSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  email?: boolean
   contactNumber?: boolean
   profilePhoto?: boolean
   isDeleted?: boolean
@@ -543,6 +571,7 @@ export type AdminSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type AdminSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   name?: boolean
+  email?: boolean
   contactNumber?: boolean
   profilePhoto?: boolean
   isDeleted?: boolean
@@ -556,6 +585,7 @@ export type AdminSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
 export type AdminSelectScalar = {
   id?: boolean
   name?: boolean
+  email?: boolean
   contactNumber?: boolean
   profilePhoto?: boolean
   isDeleted?: boolean
@@ -565,7 +595,7 @@ export type AdminSelectScalar = {
   userId?: boolean
 }
 
-export type AdminOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "contactNumber" | "profilePhoto" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["admin"]>
+export type AdminOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "contactNumber" | "profilePhoto" | "isDeleted" | "deletedAt" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["admin"]>
 export type AdminInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -584,6 +614,7 @@ export type $AdminPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
     name: string
+    email: string
     contactNumber: string | null
     profilePhoto: string | null
     isDeleted: boolean
@@ -1017,6 +1048,7 @@ export interface Prisma__AdminClient<T, Null = never, ExtArgs extends runtime.Ty
 export interface AdminFieldRefs {
   readonly id: Prisma.FieldRef<"Admin", 'String'>
   readonly name: Prisma.FieldRef<"Admin", 'String'>
+  readonly email: Prisma.FieldRef<"Admin", 'String'>
   readonly contactNumber: Prisma.FieldRef<"Admin", 'String'>
   readonly profilePhoto: Prisma.FieldRef<"Admin", 'String'>
   readonly isDeleted: Prisma.FieldRef<"Admin", 'Boolean'>
