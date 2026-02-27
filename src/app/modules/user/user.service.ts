@@ -1,13 +1,7 @@
-import status from "http-status";
 import { Role, Specialty } from "../../../generated/prisma/client";
-import AppError from "../../errorHelpers/AppError";
 import { auth } from "../../lib/auth";
 import { prisma } from "../../lib/prisma";
-import {
-  ICreateAdmin,
-  ICreateDoctorPayload,
-  ICreateSuperAdmin,
-} from "./user.interface";
+import { ICreateDoctorPayload } from "./user.interface";
 
 const createDoctor = async (payload: ICreateDoctorPayload) => {
   const specialties: Specialty[] = [];
@@ -111,92 +105,6 @@ const createDoctor = async (payload: ICreateDoctorPayload) => {
   }
 };
 
-// create admin
-const createAdmin = async (payload: ICreateAdmin) => {
-  const userExist = await prisma.user.findUnique({
-    where: { email: payload.admin.email },
-  });
-  if (userExist) {
-    throw new AppError(
-      status.BAD_REQUEST,
-      "User with this email already exists",
-    );
-  }
-
-  const userData = await auth.api.signUpEmail({
-    body: {
-      email: payload.admin.email,
-      password: payload.password,
-      role: Role.ADMIN,
-      name: payload.admin.name,
-      needPasswordChange: true,
-    },
-  });
-
-  try {
-    const result = await prisma.$transaction(async (tx) => {
-      const adminData = await tx.admin.create({
-        data: {
-          userId: userData.user.id,
-          name: payload.admin.name,
-          contactNumber: payload.admin.contactNumber,
-          profilePhoto: payload.admin.profilePhoto,
-        },
-      });
-      return adminData;
-    });
-    return result;
-  } catch (error) {
-    console.log("Transaction failed, rolling back changes :", error);
-    await prisma.user.delete({ where: { id: userData.user.id } });
-    throw Error;
-  }
-};
-
-// create super admin
-const createSuperAdmin = async (payload: ICreateSuperAdmin) => {
-  const userExist = await prisma.user.findUnique({
-    where: { email: payload.superAdmin.email },
-  });
-  if (userExist) {
-    throw new AppError(
-      status.BAD_REQUEST,
-      "User with this email already exists",
-    );
-  }
-
-  const userData = await auth.api.signUpEmail({
-    body: {
-      email: payload.superAdmin.email,
-      password: payload.password,
-      role: Role.SUPER_ADMIN,
-      name: payload.superAdmin.name,
-      needPasswordChange: true,
-    },
-  });
-
-  try {
-    const result = await prisma.$transaction(async (tx) => {
-      const superAdminData = await tx.superAdmin.create({
-        data: {
-          userId: userData.user.id,
-          name: payload.superAdmin.name,
-          profilePhoto: payload.superAdmin.profilePhoto,
-          contactNumber: payload.superAdmin.contactNumber,
-        },
-      });
-      return superAdminData;
-    });
-    return result;
-  } catch (error) {
-    console.log("Transaction failed, rolling back changes :", error);
-    await prisma.user.delete({ where: { id: userData.user.id } });
-    throw Error;
-  }
-};
-
 export const UserService = {
   createDoctor,
-  createAdmin,
-  createSuperAdmin,
 };

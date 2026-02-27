@@ -81,6 +81,8 @@ const registerPatient = async (payload: RegisterPatientPayload) => {
   }
 };
 
+// login user
+
 const loginUser = async (payload: ILoginUserPayload) => {
   const { email, password } = payload;
 
