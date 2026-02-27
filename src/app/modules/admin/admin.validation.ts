@@ -20,6 +20,22 @@ const createAdminZodSchema = z.object({
   }),
 });
 
+// login validation
+const loginAdminZodSchema = z.object({
+  email: z.string("Email is required").email("Invalid email format"),
+  password: z.string("Password is required").min(1, "Password is required"),
+});
+
+// update validation
+const updateAdminZodSchema = z.object({
+  name: z.string("Name is required").optional(),
+  contactNumber: z.string("Contact number is required").optional(),
+  profilePhoto: z.string("Profile photo is required").optional(),
+});
+
+
 export const adminValidation = {
   createAdminZodSchema,
+  loginAdminZodSchema,
+  updateAdminZodSchema,
 };

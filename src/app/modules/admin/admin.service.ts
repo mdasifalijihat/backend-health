@@ -1,9 +1,10 @@
 import status from "http-status";
 import AppError from "../../errorHelpers/AppError";
 import { prisma } from "../../lib/prisma";
-import { ICreateAdmin } from "./admin.interface";
+import { ICreateAdmin, IUpdateAdmin } from "./admin.interface";
 import { auth } from "../../lib/auth";
-import { Role } from "../../../generated/prisma/enums";
+import { Role, UserStatus } from "../../../generated/prisma/enums";
+import { tokenUtils } from "../../utils/token";
 
 // create admin
 const createAdmin = async (payload: ICreateAdmin) => {
@@ -47,6 +48,76 @@ const createAdmin = async (payload: ICreateAdmin) => {
   }
 };
 
+// login admin 
+const adminLogin = async (email: string, password: string) => {
+  const data = await auth.api.signInEmail({
+    body: { email, password },
+  });
+
+  if (!data?.user || data.user.role !== Role.ADMIN) {
+    throw new AppError(status.UNAUTHORIZED, "Invalid credentials");
+  }
+
+  if (data.user.isDeleted || data.user.status === UserStatus.DELETED) {
+    throw new AppError(status.NOT_FOUND, "Admin not found");
+  }
+
+  const accessToken = tokenUtils.getAccessToken({
+    userId: data.user.id,
+    role: data.user.role,
+  });
+
+  const refreshToken = tokenUtils.getRefreshToken({
+    userId: data.user.id,
+    role: data.user.role,
+  });
+
+  return { accessToken, refreshToken };
+};
+
+
+// update admin
+const updateAdmin = async (adminId: string, payload: IUpdateAdmin) => {
+  const admin = await prisma.admin.findUnique({
+    where: { id: adminId },
+  });
+
+  if (!admin || admin.isDeleted) {
+    throw new AppError(status.NOT_FOUND, "Admin not found");
+  }
+
+  const result = await prisma.admin.update({
+    where: { id: adminId },
+    data: payload,
+  });
+
+  return result;
+};
+
+// delete admin
+const deleteAdmin = async (adminId: string) => {
+  const admin = await prisma.admin.findUnique({
+    where: { id: adminId },
+  });
+
+  if (!admin || admin.isDeleted) {
+    throw new AppError(status.NOT_FOUND, "Admin not found");
+  }
+
+  const result = await prisma.admin.update({
+    where: { id: adminId },
+    data: {
+      isDeleted: true,
+      deletedAt: new Date(),
+    },
+  });
+
+  return result;
+};
+
 export const AdminService = {
   createAdmin,
+  adminLogin,
+  updateAdmin,
+  deleteAdmin,
 };

@@ -7,11 +7,30 @@ import { AdminController } from "./admin.controller";
 
 const router = Router();
 
+// create admin
 router.post(
   "/create-admin",
 //   checkAuth(Role.SUPER_ADMIN),
   validateRequest(adminValidation.createAdminZodSchema),
   AdminController.createAdmin,
 );
+
+// admin login
+router.post(
+  "/login",
+  validateRequest(adminValidation.loginAdminZodSchema),
+  AdminController.adminLogin,
+);
+
+router.patch(
+  "/:id",
+  // checkAuth(Role.SUPER_ADMIN),
+  validateRequest(adminValidation.updateAdminZodSchema),
+  AdminController.updateAdmin,
+);
+
+router.delete("/:id",
+  //  checkAuth(Role.SUPER_ADMIN),
+    AdminController.deleteAdmin);
 
 export const AdminRouters = router;

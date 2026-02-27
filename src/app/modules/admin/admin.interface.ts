@@ -7,3 +7,9 @@ export interface ICreateAdmin {
     contactNumber?: string;
   };
 }
+
+export interface IUpdateAdmin {
+  name?: string;
+  contactNumber?: string;
+  profilePhoto?: string;
+}
